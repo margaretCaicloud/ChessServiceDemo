@@ -63,3 +63,7 @@ info:
     java.source:1.8
     java.traget:1.8
     name:grpc-spring-cloud-consumer
+
+grpcserver:
+  host: 127.0.0.1
+  port: 50052
