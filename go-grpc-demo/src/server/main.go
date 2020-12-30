@@ -9,18 +9,16 @@ import (
 	pb "myq/go-grpc-demo/src/proto"
 	"net"
 	"net/http"
+	"os"
 
 	"io"
 
+	"github.com/spf13/viper"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 )
 
-const (
-	// Address gRPC服务地址
-	Address = "127.0.0.1:50052"
-)
 
 // 定义helloService并实现约定的接口
 type greeterService struct{}
@@ -31,26 +29,55 @@ type HttpRet struct {
 	Body    string `json:"body"`
 }
 
+type Config struct {
+	GrpcServerAddr    string `json:"title"`
+	Url3th    string `json:"title"`
+	UrlBack    string `json:"body"`
+}
 
 // HelloService Hello服务
 var GreeterServer = greeterService{}
 
+
+func  ReadConfig(confName string) (*Config, error){
+	viper.SetConfigName(confName)     //把json文件换成yaml文件，只需要配置文件名 (不带后缀)即可
+	viper.AddConfigPath(".")           //添加配置文件所在的路径
+	//viper.SetConfigType("json")       //设置配置文件类型
+	cfg := new(Config)
+	err := viper.ReadInConfig()
+	if err != nil {
+		fmt.Printf("config file fail: %s, and read from env!\n", err)
+		//os.Exit(1)
+		cfg.GrpcServerAddr = os.Getenv("GRPC_SERVER_ADDR")
+		cfg.Url3th = os.Getenv("URL3th")
+		cfg.UrlBack = os.Getenv("URL_BACK")
+		return cfg,nil
+	}else {
+		cfg.GrpcServerAddr = viper.GetString("GrpcServerAddr")
+		cfg.Url3th = viper.GetString("Url3th")
+		cfg.UrlBack = viper.GetString("UrlBack")
+		return cfg, nil
+	}
+}
+
 // SayHello 实现Hello服务接口
 func (h greeterService) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	resp := new(pb.HelloReply)
+	config,_ := ReadConfig("config_yaml")
+	url :=""
 
-	//-----------------------------------------
-	url := "https://jsonplaceholder.typicode.com/posts/1"
+	if (in.Name == "grpcloop" ){
+		url = config.UrlBack
+		respHttp, _ := sendRequest(url, nil, nil, "GET")
+		resp.Message = fmt.Sprintf("from Loop: %s.", string(respHttp))
+	}else {
+		url = config.Url3th
+		respHttp, _ := sendRequest(url, nil, nil, "GET")
+		var httpRet = HttpRet{}
+		json.Unmarshal(respHttp, &httpRet)
+		resp.Message = fmt.Sprintf("from 3th api: %s.", httpRet.Title)
+	}
 
-	//提交请求
-	respHttp, _ := sendRequest( url, nil,nil,"GET")
-
-
-	var httpRet = HttpRet{}
-	json.Unmarshal(respHttp,&httpRet)
-
-	//formet grpc ret
-	resp.Message = fmt.Sprintf("from 3th api: %s.", httpRet.Title)
 	fmt.Println(resp.Message)
 	return resp, nil
 }
@@ -91,6 +118,18 @@ func sendRequest(url string, body io.Reader, addHeaders map[string]string, metho
 }
 
 func main() {
+	Address := "127.0.0.1:50052"
+
+	cfg,err := ReadConfig("config_yaml")
+	if err != nil {
+		fmt.Printf("config file fail: %s, and read from env!\n", err)
+		//os.Exit(1)
+		cfg.GrpcServerAddr = os.Getenv("GRPC_SERVER_ADDR")
+	}
+
+	Address = cfg.GrpcServerAddr
+
+	fmt.Println("grpcServer adderss:", Address)
 
 	// 实例化grpc Server
 	grpcS := grpc.NewServer()

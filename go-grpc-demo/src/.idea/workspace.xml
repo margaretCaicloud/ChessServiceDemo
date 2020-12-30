@@ -24,6 +24,21 @@
       <change afterPath="$PROJECT_DIR$/.idea/src.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcSpringCloudConsumerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/java/com/chessDemo/grpcspringcloudconsumer/GrpcSpringCloudConsumerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-spring-cloud-consumer/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/grpc-springboot-cloud-lib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/grpc-springboot-cloud-lib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/grpc-springboot-cloud-lib-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/grpc-springboot-cloud-lib-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/grpc-springboot-cloud-lib/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../grpc-springboot-cloud-master/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springbootwebapp-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../springbootwebapp-master/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/bootstrap/ProductLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/bootstrap/ProductLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/controllers/DemoProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/controllers/DemoProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../springbootwebapp-master/src/main/java/guru/springframework/controllers/ProductController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +64,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -79,6 +95,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -88,21 +105,60 @@
       <screen x="0" y="23" width="1792" height="1011" />
     </state>
     <state x="692" y="465" key="#GOROOT/0.23.1792.1011@0.23.1792.1011" timestamp="1607926770434" />
-    <state width="1750" height="339" key="GridCell.Tab.0.bottom" timestamp="1607927020198">
-      <screen x="0" y="23" width="1792" height="1011" />
+    <state width="1750" height="175" key="GridCell.Tab.0.bottom" timestamp="1608254568337">
+      <screen x="0" y="23" width="1792" height="1012" />
     </state>
-    <state width="1750" height="339" key="GridCell.Tab.0.bottom/0.23.1792.1011@0.23.1792.1011" timestamp="1607927020198" />
-    <state width="1750" height="339" key="GridCell.Tab.0.center" timestamp="1607927020197">
-      <screen x="0" y="23" width="1792" height="1011" />
+    <state width="1750" height="175" key="GridCell.Tab.0.bottom/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293712" />
+    <state width="1750" height="175" key="GridCell.Tab.0.bottom/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568337" />
+    <state width="1750" height="175" key="GridCell.Tab.0.center" timestamp="1608254568337">
+      <screen x="0" y="23" width="1792" height="1012" />
     </state>
-    <state width="1750" height="339" key="GridCell.Tab.0.center/0.23.1792.1011@0.23.1792.1011" timestamp="1607927020197" />
-    <state width="1750" height="339" key="GridCell.Tab.0.left" timestamp="1607927020196">
-      <screen x="0" y="23" width="1792" height="1011" />
+    <state width="1750" height="175" key="GridCell.Tab.0.center/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293712" />
+    <state width="1750" height="175" key="GridCell.Tab.0.center/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568337" />
+    <state width="1750" height="175" key="GridCell.Tab.0.left" timestamp="1608254568336">
+      <screen x="0" y="23" width="1792" height="1012" />
     </state>
-    <state width="1750" height="339" key="GridCell.Tab.0.left/0.23.1792.1011@0.23.1792.1011" timestamp="1607927020196" />
-    <state width="1750" height="339" key="GridCell.Tab.0.right" timestamp="1607927020197">
-      <screen x="0" y="23" width="1792" height="1011" />
+    <state width="1750" height="175" key="GridCell.Tab.0.left/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293712" />
+    <state width="1750" height="175" key="GridCell.Tab.0.left/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568336" />
+    <state width="1750" height="175" key="GridCell.Tab.0.right" timestamp="1608254568337">
+      <screen x="0" y="23" width="1792" height="1012" />
     </state>
-    <state width="1750" height="339" key="GridCell.Tab.0.right/0.23.1792.1011@0.23.1792.1011" timestamp="1607927020197" />
+    <state width="1750" height="175" key="GridCell.Tab.0.right/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293712" />
+    <state width="1750" height="175" key="GridCell.Tab.0.right/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568337" />
+    <state width="1750" height="175" key="GridCell.Tab.1.bottom" timestamp="1608254568243">
+      <screen x="0" y="23" width="1792" height="1012" />
+    </state>
+    <state width="1750" height="175" key="GridCell.Tab.1.bottom/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293713" />
+    <state width="1750" height="175" key="GridCell.Tab.1.bottom/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568243" />
+    <state width="1750" height="175" key="GridCell.Tab.1.center" timestamp="1608254568242">
+      <screen x="0" y="23" width="1792" height="1012" />
+    </state>
+    <state width="1750" height="175" key="GridCell.Tab.1.center/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293713" />
+    <state width="1750" height="175" key="GridCell.Tab.1.center/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568242" />
+    <state width="1750" height="175" key="GridCell.Tab.1.left" timestamp="1608254568242">
+      <screen x="0" y="23" width="1792" height="1012" />
+    </state>
+    <state width="1750" height="175" key="GridCell.Tab.1.left/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293712" />
+    <state width="1750" height="175" key="GridCell.Tab.1.left/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568242" />
+    <state width="1750" height="175" key="GridCell.Tab.1.right" timestamp="1608254568243">
+      <screen x="0" y="23" width="1792" height="1012" />
+    </state>
+    <state width="1750" height="175" key="GridCell.Tab.1.right/0.23.1792.1011@0.23.1792.1011" timestamp="1608000293713" />
+    <state width="1750" height="175" key="GridCell.Tab.1.right/0.23.1792.1012@0.23.1792.1012" timestamp="1608254568243" />
+    <state x="397" y="168" key="SettingsEditor" timestamp="1608254436842">
+      <screen x="0" y="23" width="1792" height="1012" />
+    </state>
+    <state x="397" y="168" key="SettingsEditor/0.23.1792.1012@0.23.1792.1012" timestamp="1608254436842" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/main.go</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
