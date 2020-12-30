@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: go-grpc-provider-config
+data:
+    config_yaml: |
+    GrpcServerAddr: "127.0.0.1:50052"
+    Url3th: "https://jsonplaceholder.typicode.com/posts/1"
+    UrlBack : "http://grpc-consumer.demo.svc.cluster.local:30001/db/loop"

@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-consumer
+  labels:
+    app: grpc-consumer
+    service: grpc-consumer
+spec:
+  ports:
+  - port: 30002
+    name: grpc-consumer
+  selector:
+    app: grpc-consumer
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-consumer
+  labels:
+    app: grpc-consumer
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-consumer
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: grpc-consumer
+        version: v2
+    spec:
+      containers:
+      - name: grpc-consumer
+        image: test.cargo.io/demo/grpc-springboot-servers:0.2
+        imagePullPolicy: IfNotPresent
+        command: ["java"]
+        args: ["-jar","//home/grpc-consumer-noEruake/target/grpc-consumer-noEruake-1.0-SNAPSHOT.jar"]
+        envFrom:
+          - configMapRef:
+              name: grpc-consumer-config
+        ports:
+        - containerPort: 30002

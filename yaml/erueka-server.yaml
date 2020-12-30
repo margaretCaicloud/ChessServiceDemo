@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: erueka-server
+  labels:
+    app: erueka-server
+    service: erueka-server
+spec:
+  ports:
+  - port: 8761
+    name: erueka
+  selector:
+    app: erueka-server
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erueka-server
+  labels:
+    app: erueka-server
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: erueka-server
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: erueka-server
+        version: v2
+    spec:
+      containers:
+      - name: erueka-server
+        image: test.cargo.io/demo/grpc-springboot-servers:0.2
+        imagePullPolicy: IfNotPresent
+        command: ["java"]
+        args: ["-jar","//home/grpc-eureka-server/target/grpc-eureka-server-1.0-SNAPSHOT.jar"]
+        env:
+            - name: APP_NAME
+              value: erueka-server.demo.svc.cluster.local
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: APP_OPTS
+              value: "
+                     --eureka.instance.hostname=${POD_NAME}.${APP_NAME}
+                     --registerWithEureka=false
+                     --fetchRegistry=false
+                     --eureka.instance.preferIpAddress=false
+                     --eureka.client.serviceUrl.defaultZone=http://${APP_NAME}:8761/eureka/"
+        ports:
+        - containerPort: 8761

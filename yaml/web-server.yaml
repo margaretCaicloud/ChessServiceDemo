@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-server
+  labels:
+    app: web-server
+    service: web-server
+spec:
+  ports:
+  - port: 30002
+    name: web-server
+  selector:
+    app: web-server
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+  labels:
+    app: web-server
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-server
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: web-server
+        version: v2
+    spec:
+      containers:
+      - name: web-server
+        image: test.cargo.io/demo/web-server:0.1
+        imagePullPolicy: IfNotPresent
+        command: ["java"]
+        args: ["-jar","//home/springbootwebapp-master/target/spring-boot-web-0.0.1-SNAPSHOT.jar"]
+        envFrom:
+          - configMapRef:
+              name: web-service-config
+        ports:
+        - containerPort: 446
