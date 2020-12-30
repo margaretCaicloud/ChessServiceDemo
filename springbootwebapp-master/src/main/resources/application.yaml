@@ -17,3 +17,7 @@ eureka:
     service-url:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
     register-with-eureka: true
+
+
+noEruakeHttpServer:
+  adder: "localhost:30002"

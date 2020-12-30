@@ -10,16 +10,16 @@
 <div class="container">
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-    <h2>Product Details</h2>
+    <h2>Case Details</h2>
         <div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Product Id:</label>
+                    <label class="col-sm-2 control-label">Case Id:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.id}">Product Id</p></div>
+                        <p class="form-control-static" th:text="${product.id}">Case Id</p></div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Description:</label>
+                    <label class="col-sm-2 control-label">Return:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${product.description}">description</p>
                     </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Image Url:</label>
+                    <label class="col-sm-2 control-label">Route Detail:</label>
                     <div class="col-sm-10">
                         <p class="form-control-static" th:text="${product.imageUrl}">url....</p>
                     </div>

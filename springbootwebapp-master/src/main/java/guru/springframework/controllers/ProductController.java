@@ -2,7 +2,11 @@ package guru.springframework.controllers;
 
 import guru.springframework.domain.Product;
 import guru.springframework.services.ProductService;
+import guru.springframework.utils.HttpClient;
+import org.apache.http.HttpEntity;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.core.ParameterizedTypeReference;
@@ -15,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
+
 @Controller
 public class ProductController {
 
@@ -24,6 +30,10 @@ public class ProductController {
 
     @Autowired
     private LoadBalancerClient lbClient;
+
+    @Value("${noEruakeHttpServer.adder}")
+    public String noEruakeHttpServerAdder;
+
 
     private String ErukaServiceProvider = "provider";
     private String rest_url_prefix = "http://"+ErukaServiceProvider+"/";
@@ -60,15 +70,13 @@ public class ProductController {
 
     @RequestMapping(value = "product", method = RequestMethod.POST)
     public String saveProduct(Product product){
-
         productService.saveProduct(product);
-
         return "redirect:/product/" + product.getId();
     }
 
 
     @RequestMapping("product/{id}")
-    public String showProduct(@PathVariable Integer id, Model model){
+    public String showProduct(@PathVariable Integer id, Model model) throws IOException {
         Product tmp=productService.getProductById(id);
         ServiceInstance si=lbClient.choose(ErukaServiceProvider);
         if(null==si){
@@ -80,7 +88,21 @@ public class ProductController {
         switch (id)
         {
             case 1:
-                url=url+"/grpc/grpcDate";
+                url=url+"/grpc/grpc3thAPI";
+                break;
+            case 2:
+                url="http://"+noEruakeHttpServerAdder+"/db/noEureka";
+                String respStr=HttpClient.getSimple(url);
+                if(respStr != null) {
+                    tmp.setDescription(respStr);
+                    model.addAttribute("product", tmp);
+                }
+                return "productshow";
+            case 3:
+                url=url+"/db/Eureka";
+                break;
+            case 4:
+                url=url+"/grpc/grpcloop";
                 break;
             default:
                 url=url+"/db/mary";
