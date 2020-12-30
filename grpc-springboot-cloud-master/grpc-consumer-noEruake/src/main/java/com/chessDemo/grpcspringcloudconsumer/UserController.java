@@ -37,7 +37,13 @@ public class UserController {
     @GetMapping("/mary")
     public String getUser() {
         User u = userMapper.findByName("mary");
-        return u.toString();
+        return u.getDescribes();
+    }
+
+    @GetMapping("/noEureka")
+    public String getUserEureka() {
+        User u = userMapper.findByName("noEureka");
+        return u.getDescribes();
     }
 
     /**

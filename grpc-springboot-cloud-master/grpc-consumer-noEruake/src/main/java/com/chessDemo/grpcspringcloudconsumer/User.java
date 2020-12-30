@@ -40,6 +40,7 @@ public class User {
     private int age;
 
     private String name;
+    private String describes;
 
     public int getId() {
         return id;
@@ -68,5 +69,13 @@ public class User {
     @Override
     public String toString() {
         return JSON.toJSONString(this);
+    }
+
+    public String getDescribes() {
+        return describes;
+    }
+
+    public void setDescribes(String describes) {
+        this.describes = describes;
     }
 }
