@@ -18,9 +18,11 @@ public class UserController {
 
 
 
-    @GetMapping("/test")
+    @GetMapping("/loop")
     public String test() {
-        return "haha";
+//        return "back to grpc server";
+        User u = userMapper.findByName("loop");
+        return u.getDescribes();
     }
     /**
      * 处理"/users/"的GET请求，用来获取用户列表
@@ -38,6 +40,12 @@ public class UserController {
     public String getUser() {
         User u = userMapper.findByName("mary");
         return u.toString();
+    }
+
+    @GetMapping("/Eureka")
+    public String getUserEureka() {
+        User u = userMapper.findByName("Eureka");
+        return u.getDescribes();
     }
 
     /**

@@ -28,7 +28,7 @@ public class GrpcClientService2 {
     public String host;
 
     @Value("${grpcserver.port}")
-    public int port;
+    public String port;
 
 
     public void GrpcClientService2(String host,Integer port) {
@@ -37,7 +37,7 @@ public class GrpcClientService2 {
 
     private void open(){
         if(this.serverChannel==null) {
-            this.serverChannel = ManagedChannelBuilder.forAddress(this.host, this.port).usePlaintext().build();
+            this.serverChannel = ManagedChannelBuilder.forAddress(this.host, Integer.valueOf(this.port)).usePlaintext().build();
             blockingStub = GreeterGrpc.newBlockingStub(serverChannel);
         }
     }
